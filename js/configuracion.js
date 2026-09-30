@@ -7,6 +7,10 @@ const CONFIGURACION = {
   // Mostrar u ocultar los avisos "de ejemplo" (poné false al publicar)
   mostrarNotas: true,
 
+  // Mientras no haya fotos reales, las vistas previas indican la carpeta y la etiqueta
+  // de Cloudinary donde hay que subirlas (poné false para ver los textos de ejemplo)
+  vistasPreviasConCarpeta: true,
+
   // Fotos desde Cloudinary (solo lectura: no se necesita upload preset)
   // El gestor de imágenes etiqueta cada foto como "<proyecto>_<carpeta>"
   cloudinary: {
@@ -14,7 +18,10 @@ const CONFIGURACION = {
     proyecto: "patriciabertoche",
     carpetaGaleria: "galeria",    // etiqueta: patriciabertoche_galeria
     carpetaImagenes: "imagenes",  // etiqueta: patriciabertoche_imagenes
-    palabraRetrato: "patricia"    // la foto de "Sobre mí" es la que tenga esta palabra en el nombre
+    palabraRetrato: "patricia",   // la foto de "Sobre mí" es la que tenga esta palabra en el nombre
+    // Opcional y más directo: ID público de la foto de "Sobre mí" tal como figura en Cloudinary
+    // (ej: "patriciabertoche/imagenes/patricia.webp" o "patricia.webp"). Si lo completás, no hace falta etiqueta.
+    fotoRetrato: ""
   },
 
   negocio: {
@@ -57,7 +64,7 @@ const CONFIGURACION = {
     titulo: "Galería",
     intro: "Un vistazo al espacio y a los tratamientos. Más fotos en Instagram.",
     boton: "Ver más en Instagram",
-    nota: "Las fotos vienen de Cloudinary (patriciabertoche/galeria). Mientras no haya, se muestran bloques de ejemplo.",
+    nota: "Las fotos vienen de Cloudinary. Cada vista previa indica la carpeta y la etiqueta donde subir la foto.",
     fotos: ["Cabina de masajes", "Aceites y aromas", "Piedras calientes", "Sala de té", "Facial"]
   },
 
