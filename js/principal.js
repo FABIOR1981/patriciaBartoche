@@ -39,12 +39,56 @@ C.servicios.lista.forEach((s, i) => {
 });
 document.getElementById("campo-horario").placeholder = C.reserva.ejemploHorario;
 
+// Fotos desde Cloudinary (lista pública por etiqueta, igual que Monarca)
+const N = C.cloudinary;
+const urlFoto = (img, ancho) =>
+  `https://res.cloudinary.com/${N.nombreNube}/image/upload/q_auto,f_auto,w_${ancho},c_limit/v${img.version}/${img.public_id}.${img.format}`;
+
+function traerFotos(carpeta) {
+  const etiqueta = `${N.proyecto}_${carpeta}`;
+  return fetch(`https://res.cloudinary.com/${N.nombreNube}/image/list/${etiqueta}.json`)
+    .then((r) => {
+      if (!r.ok) throw new Error(`Sin lista para la etiqueta ${etiqueta}`);
+      return r.json();
+    })
+    .then((d) => d.resources || [])
+    .catch((e) => { console.warn(e.message); return []; });
+}
+
 // Galería
 const listaGaleria = document.getElementById("lista-galeria");
-C.galeria.fotos.forEach((titulo, i) => {
-  const foto = crear("div", `foto f${i + 1}`);
-  foto.append(crear("span", "", titulo));
-  listaGaleria.append(foto);
+function galeriaDeEjemplo() {
+  C.galeria.fotos.forEach((titulo, i) => {
+    const foto = crear("div", `foto f${i + 1}`);
+    foto.append(crear("span", "", titulo));
+    listaGaleria.append(foto);
+  });
+}
+traerFotos(N.carpetaGaleria).then((fotos) => {
+  if (!fotos.length) return galeriaDeEjemplo();
+  fotos.forEach((img, i) => {
+    const foto = crear("div", `foto f${(i % 5) + 1} con-imagen`);
+    const titulo = (img.context?.custom?.caption || "").trim();
+    const el = document.createElement("img");
+    el.src = urlFoto(img, 900);
+    el.alt = titulo || "Foto del centro";
+    el.loading = "lazy";
+    foto.append(el);
+    if (titulo) foto.append(crear("span", "", titulo));
+    listaGaleria.append(foto);
+  });
+});
+
+// Foto de "Sobre mí" (carpeta imagenes)
+traerFotos(N.carpetaImagenes).then((fotos) => {
+  if (!fotos.length) return;
+  const retrato = fotos.find((f) => f.public_id.toLowerCase().includes(N.palabraRetrato)) || fotos[0];
+  const contenedor = document.querySelector(".retrato");
+  const el = document.createElement("img");
+  el.src = urlFoto(retrato, 800);
+  el.alt = C.sobreMi.textoFoto;
+  contenedor.replaceChildren(el);
+  contenedor.classList.add("con-imagen");
 });
 
 // Sobre mí

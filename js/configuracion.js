@@ -7,6 +7,16 @@ const CONFIGURACION = {
   // Mostrar u ocultar los avisos "de ejemplo" (poné false al publicar)
   mostrarNotas: true,
 
+  // Fotos desde Cloudinary (solo lectura: no se necesita upload preset)
+  // El gestor de imágenes etiqueta cada foto como "<proyecto>_<carpeta>"
+  cloudinary: {
+    nombreNube: "p0qlmlor",
+    proyecto: "patriciabertoche",
+    carpetaGaleria: "galeria",    // etiqueta: patriciabertoche_galeria
+    carpetaImagenes: "imagenes",  // etiqueta: patriciabertoche_imagenes
+    palabraRetrato: "patricia"    // la foto de "Sobre mí" es la que tenga esta palabra en el nombre
+  },
+
   negocio: {
     nombre: "Patricia Bertoche",
     lema: "Masajes y relajación",
@@ -47,7 +57,7 @@ const CONFIGURACION = {
     titulo: "Galería",
     intro: "Un vistazo al espacio y a los tratamientos. Más fotos en Instagram.",
     boton: "Ver más en Instagram",
-    nota: "Bloques de ejemplo: reemplazalos por fotos reales en img/.",
+    nota: "Las fotos vienen de Cloudinary (patriciabertoche/galeria). Mientras no haya, se muestran bloques de ejemplo.",
     fotos: ["Cabina de masajes", "Aceites y aromas", "Piedras calientes", "Sala de té", "Facial"]
   },
 
