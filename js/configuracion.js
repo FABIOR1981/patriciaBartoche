@@ -29,6 +29,7 @@ const CONFIGURACION = {
     proyecto: "patriciabertoche",
     carpetaGaleria: "galeria",    // etiqueta: patriciabertoche_galeria
     carpetaImagenes: "imagenes",  // etiqueta: patriciabertoche_imagenes
+    carpetaInstalaciones: "instalaciones", // etiqueta: patriciabertoche_instalaciones
     palabraRetrato: "patricia",   // la foto de "Sobre mí" es la que tenga esta palabra en el nombre
     // Opcional y más directo: ID público de la foto de "Sobre mí" tal como figura en Cloudinary
     // (ej: "patriciabertoche/imagenes/patricia.webp" o "patricia.webp"). Si lo completás, no hace falta etiqueta.
@@ -77,6 +78,13 @@ const CONFIGURACION = {
     boton: "Ver más en Instagram",
     nota: "Las fotos vienen de Cloudinary. Cada vista previa indica la carpeta y la etiqueta donde subir la foto.",
     fotos: ["Cabina de masajes", "Aceites y aromas", "Piedras calientes", "Sala de té", "Facial"]
+  },
+
+  instalaciones: {
+    titulo: "Nuestras instalaciones",
+    intro: "Un espacio pensado para que te sientas en calma desde que llegás.",
+    nota: "Las fotos vienen de Cloudinary: carpeta patriciabertoche/instalaciones.",
+    fotos: ["Recepción", "Cabina de masajes", "Sala de té"]
   },
 
   sobreMi: {

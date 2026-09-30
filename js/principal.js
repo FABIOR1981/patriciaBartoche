@@ -87,6 +87,32 @@ traerFotos(N.carpetaGaleria).then((fotos) => {
   });
 });
 
+// Instalaciones (carpeta instalaciones)
+const listaInstalaciones = document.getElementById("lista-instalaciones");
+if (listaInstalaciones) {
+  traerFotos(N.carpetaInstalaciones).then((fotos) => {
+    if (!fotos.length) {
+      C.instalaciones.fotos.forEach((titulo) => {
+        const fig = crear("figure", "instalacion");
+        fig.append(C.vistasPreviasConCarpeta ? textoVistaPrevia(N.carpetaInstalaciones) : crear("figcaption", "", titulo));
+        listaInstalaciones.append(fig);
+      });
+      return;
+    }
+    fotos.forEach((img) => {
+      const fig = crear("figure", "instalacion con-imagen");
+      const titulo = (img.context?.custom?.caption || "").trim();
+      const el = document.createElement("img");
+      el.src = urlFoto(img, 1100);
+      el.alt = titulo || "Instalaciones del centro";
+      el.loading = "lazy";
+      fig.append(el);
+      if (titulo) fig.append(crear("figcaption", "", titulo));
+      listaInstalaciones.append(fig);
+    });
+  });
+}
+
 // Foto de "Sobre mí" (carpeta imagenes)
 function mostrarRetrato(url) {
   const contenedor = document.querySelector(".retrato");

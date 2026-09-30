@@ -13,6 +13,7 @@ centro-relax/
 ├── aurora.html     Diseño 5 · Aurora
 ├── mineral.html    Diseño 6 · Mineral
 ├── css/            Un archivo de estilos por diseño (estilos.css es el de Serenidad)
+│                   + instalaciones.css (compartido por los 6)
 └── js/
     ├── configuracion.js   Todos los datos editables
     ├── principal.js       Arma la página y conecta Cloudinary y WhatsApp
@@ -40,6 +41,7 @@ El sitio solo lee: no necesita `UPLOAD_PRESET`. Usa la cuenta `p0qlmlor` y busca
 |---|---|---|
 | `patriciabertoche/galeria` | `patriciabertoche_galeria` | Sección Galería |
 | `patriciabertoche/imagenes` | `patriciabertoche_imagenes` | Foto de "Sobre mí" |
+| `patriciabertoche/instalaciones` | `patriciabertoche_instalaciones` | Sección Instalaciones |
 
 - La foto de "Sobre mí" es la que tenga `patricia` en el nombre (`cloudinary.palabraRetrato`); si no hay, se usa la primera.
 - Alternativa directa: completar `cloudinary.fotoRetrato` con el ID público de la imagen.
