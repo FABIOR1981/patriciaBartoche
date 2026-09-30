@@ -102,12 +102,23 @@ if (listaInstalaciones) {
     fotos.forEach((img) => {
       const fig = crear("figure", "instalacion con-imagen");
       const titulo = (img.context?.custom?.caption || "").trim();
+      // "Description (alt)" de Cloudinary llega como context.custom.alt
+      const descripcion = (img.context?.custom?.alt || "").trim();
       const el = document.createElement("img");
       el.src = urlFoto(img, 1100);
-      el.alt = titulo || "Instalaciones del centro";
+      el.alt = descripcion || titulo || "Instalaciones del centro";
       el.loading = "lazy";
       fig.append(el);
-      if (titulo) fig.append(crear("figcaption", "", titulo));
+      if (titulo || descripcion) {
+        const pie = crear("figcaption");
+        if (titulo) pie.append(crear("strong", "", titulo));
+        if (descripcion) pie.append(crear("span", "descripcion", descripcion));
+        fig.append(pie);
+      }
+      if (descripcion) {
+        fig.tabIndex = 0; // en celular se muestra al tocar
+        fig.title = descripcion; // texto al dejar el cursor quieto
+      }
       listaInstalaciones.append(fig);
     });
   });
