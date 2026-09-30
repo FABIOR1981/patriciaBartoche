@@ -82,7 +82,7 @@ traerFotos(N.carpetaGaleria).then((fotos) => {
 // Foto de "Sobre mí" (carpeta imagenes)
 traerFotos(N.carpetaImagenes).then((fotos) => {
   if (!fotos.length) return;
-  const retrato = fotos.find((f) => f.public_id.toLowerCase().includes(N.palabraRetrato)) || fotos[0];
+  const retrato = fotos.find((f) => f.public_id.split("/").pop().toLowerCase().includes(N.palabraRetrato)) || fotos[0];
   const contenedor = document.querySelector(".retrato");
   const el = document.createElement("img");
   el.src = urlFoto(retrato, 800);
