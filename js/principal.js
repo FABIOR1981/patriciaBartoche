@@ -153,6 +153,7 @@ menu.addEventListener("click", (e) => {
 const textoRespiro = document.getElementById("respiro-texto");
 let inhalando = false;
 function alternar() {
+  if (!textoRespiro) return;
   inhalando = !inhalando;
   textoRespiro.textContent = inhalando ? C.inicio.textoInhalar : C.inicio.textoExhalar;
 }
@@ -179,4 +180,9 @@ formulario.addEventListener("submit", (e) => {
   let mensaje = `${C.contacto.saludo}, soy ${nombre}. Quiero reservar: ${servicio}.`;
   if (horario) mensaje += ` Me viene bien: ${horario}.`;
   window.open(`https://wa.me/${C.contacto.whatsapp}?text=${encodeURIComponent(mensaje)}`, "_blank", "noopener");
+});
+
+// Botón flotante de WhatsApp (solo en los diseños que lo incluyen)
+document.querySelectorAll("[data-whatsapp]").forEach((a) => {
+  a.href = `https://wa.me/${C.contacto.whatsapp}?text=${encodeURIComponent(C.contacto.saludo + ", quiero reservar un turno.")}`;
 });

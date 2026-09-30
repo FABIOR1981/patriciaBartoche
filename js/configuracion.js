@@ -7,6 +7,14 @@ const CONFIGURACION = {
   // Mostrar u ocultar los avisos "de ejemplo" (poné false al publicar)
   mostrarNotas: true,
 
+  // Selector para mostrarle varios diseños al cliente (poné false al entregar el sitio final)
+  mostrarSelectorDisenos: true,
+  disenos: [
+    { nombre: "Serenidad", archivo: "index.html" },
+    { nombre: "Atelier", archivo: "atelier.html" },
+    { nombre: "Luz", archivo: "luz.html" }
+  ],
+
   // Mientras no haya fotos reales, las vistas previas indican la carpeta y la etiqueta
   // de Cloudinary donde hay que subirlas (poné false para ver los textos de ejemplo)
   vistasPreviasConCarpeta: true,
