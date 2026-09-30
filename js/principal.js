@@ -48,7 +48,7 @@ function traerFotos(carpeta) {
   const etiqueta = `${N.proyecto}_${carpeta}`;
   return fetch(`https://res.cloudinary.com/${N.nombreNube}/image/list/${etiqueta}.json`)
     .then((r) => {
-      if (!r.ok) throw new Error(`Sin lista para la etiqueta ${etiqueta}`);
+      if (!r.ok) throw new Error(`Cloudinary respondió ${r.status} para la etiqueta "${etiqueta}" (falta la etiqueta o Resource list)`);
       return r.json();
     })
     .then((d) => d.resources || [])
@@ -57,10 +57,18 @@ function traerFotos(carpeta) {
 
 // Galería
 const listaGaleria = document.getElementById("lista-galeria");
+// Contenido de una vista previa: dice en qué carpeta de Cloudinary va la foto
+function textoVistaPrevia(carpeta, extra) {
+  const caja = crear("span", "vista-previa");
+  caja.append(crear("strong", "", `${N.proyecto}/${carpeta}`));
+  if (extra) caja.append(crear("small", "", extra));
+  caja.append(crear("small", "", `Etiqueta: ${N.proyecto}_${carpeta}`));
+  return caja;
+}
 function galeriaDeEjemplo() {
   C.galeria.fotos.forEach((titulo, i) => {
     const foto = crear("div", `foto f${i + 1}`);
-    foto.append(crear("span", "", titulo));
+    foto.append(C.vistasPreviasConCarpeta ? textoVistaPrevia(N.carpetaGaleria) : crear("span", "", titulo));
     listaGaleria.append(foto);
   });
 }
@@ -80,16 +88,31 @@ traerFotos(N.carpetaGaleria).then((fotos) => {
 });
 
 // Foto de "Sobre mí" (carpeta imagenes)
-traerFotos(N.carpetaImagenes).then((fotos) => {
-  if (!fotos.length) return;
-  const retrato = fotos.find((f) => f.public_id.split("/").pop().toLowerCase().includes(N.palabraRetrato)) || fotos[0];
+function mostrarRetrato(url) {
   const contenedor = document.querySelector(".retrato");
   const el = document.createElement("img");
-  el.src = urlFoto(retrato, 800);
+  el.src = url;
   el.alt = C.sobreMi.textoFoto;
+  el.onerror = () => console.warn("No se pudo cargar la foto de Patricia:", url);
   contenedor.replaceChildren(el);
   contenedor.classList.add("con-imagen");
-});
+}
+if (N.fotoRetrato) {
+  mostrarRetrato(`https://res.cloudinary.com/${N.nombreNube}/image/upload/q_auto,w_800,c_limit/${N.fotoRetrato}`);
+} else {
+  traerFotos(N.carpetaImagenes).then((fotos) => {
+    if (!fotos.length) {
+      if (C.vistasPreviasConCarpeta) {
+        document.querySelector(".retrato").replaceChildren(
+          textoVistaPrevia(N.carpetaImagenes, `Nombre del archivo: ${N.palabraRetrato}`)
+        );
+      }
+      return;
+    }
+    const retrato = fotos.find((f) => f.public_id.split("/").pop().toLowerCase().includes(N.palabraRetrato)) || fotos[0];
+    mostrarRetrato(urlFoto(retrato, 800));
+  });
+}
 
 // Sobre mí
 const parrafos = document.getElementById("parrafos-sobre-mi");
