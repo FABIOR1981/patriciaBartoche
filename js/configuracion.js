@@ -60,14 +60,14 @@ const CONFIGURACION = {
   servicios: {
     titulo: "Servicios",
     intro: "Tocá un servicio para ver de qué se trata. Todos se adaptan a cómo llegás ese día.",
-    nota: "Duraciones y precios de ejemplo: reemplazalos por los reales.",
+    nota: "Duraciones de ejemplo: reemplazalas por las reales.",
     lista: [
-      { nombre: "Masaje relajante", duracion: "60 min", precio: "$1.800", detalle: "Movimientos lentos y continuos con aceites tibios para soltar la tensión del día a día." },
-      { nombre: "Descontracturante", duracion: "50 min", precio: "$1.800", detalle: "Trabajo profundo en cuello, espalda y hombros, para zonas cargadas por postura o estrés." },
-      { nombre: "Drenaje linfático", duracion: "60 min", precio: "$1.900", detalle: "Técnica suave que ayuda a reducir la retención de líquidos y la sensación de pesadez." },
-      { nombre: "Piedras calientes", duracion: "75 min", precio: "$2.400", detalle: "Calor mineral sobre puntos clave del cuerpo para una relajación muscular más profunda." },
-      { nombre: "Limpieza facial", duracion: "60 min", precio: "$1.700", detalle: "Limpieza, exfoliación e hidratación según tu tipo de piel, con masaje facial incluido." },
-      { nombre: "Tratamientos corporales", duracion: "Consultar", precio: "", detalle: "Exfoliaciones e hidratación corporal para renovar la piel. Escribinos y armamos el plan." }
+      { nombre: "Masaje relajante", duracion: "60 min", detalle: "Movimientos lentos y continuos con aceites tibios para soltar la tensión del día a día." },
+      { nombre: "Descontracturante", duracion: "50 min", detalle: "Trabajo profundo en cuello, espalda y hombros, para zonas cargadas por postura o estrés." },
+      { nombre: "Drenaje linfático", duracion: "60 min", detalle: "Técnica suave que ayuda a reducir la retención de líquidos y la sensación de pesadez." },
+      { nombre: "Piedras calientes", duracion: "75 min", detalle: "Calor mineral sobre puntos clave del cuerpo para una relajación muscular más profunda." },
+      { nombre: "Limpieza facial", duracion: "60 min", detalle: "Limpieza, exfoliación e hidratación según tu tipo de piel, con masaje facial incluido." },
+      { nombre: "Tratamientos corporales", duracion: "Consultar", detalle: "Exfoliaciones e hidratación corporal para renovar la piel. Escribinos y armamos el plan." }
     ]
   },
 
