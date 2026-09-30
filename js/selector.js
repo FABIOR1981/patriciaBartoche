@@ -7,7 +7,7 @@
   const actual = location.pathname.split("/").pop() || "index.html";
   const estilo = document.createElement("style");
   estilo.textContent = `
-    .selector-disenos{position:fixed;left:50%;bottom:calc(.8rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:999;display:flex;align-items:center;gap:.3rem;padding:.35rem;background:rgba(20,20,24,.92);border-radius:99px;box-shadow:0 6px 24px rgba(0,0,0,.3);font:500 .85rem system-ui,sans-serif;color:#fff;max-width:96vw}
+    .selector-disenos{position:fixed;left:50%;bottom:calc(.8rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:999;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.3rem;padding:.35rem;background:rgba(20,20,24,.92);border-radius:22px;width:max-content;box-shadow:0 6px 24px rgba(0,0,0,.3);font:500 .85rem system-ui,sans-serif;color:#fff;max-width:96vw}
     .selector-disenos span{padding:0 .6rem;opacity:.7}
     .selector-disenos a{color:#fff;text-decoration:none;padding:.45rem .9rem;border-radius:99px}
     .selector-disenos a:hover{background:rgba(255,255,255,.15)}

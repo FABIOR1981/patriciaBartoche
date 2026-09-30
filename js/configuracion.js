@@ -12,7 +12,10 @@ const CONFIGURACION = {
   disenos: [
     { nombre: "Serenidad", archivo: "index.html" },
     { nombre: "Atelier", archivo: "atelier.html" },
-    { nombre: "Luz", archivo: "luz.html" }
+    { nombre: "Luz", archivo: "luz.html" },
+    { nombre: "Bosque", archivo: "bosque.html" },
+    { nombre: "Aurora", archivo: "aurora.html" },
+    { nombre: "Mineral", archivo: "mineral.html" }
   ],
 
   // Mientras no haya fotos reales, las vistas previas indican la carpeta y la etiqueta

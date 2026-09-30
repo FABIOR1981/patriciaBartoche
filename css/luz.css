@@ -57,7 +57,7 @@ input,select{font:inherit;padding:.8rem 1rem;border:1px solid #b9dcd7;border-rad
 .error{color:#a3324f;margin:0}
 .pie{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;padding:2rem 6vw calc(2rem + env(safe-area-inset-bottom,0));background:var(--teal);color:#fff}
 .pie p{margin:0}
-.flotante{position:fixed;right:1rem;bottom:calc(4.8rem + env(safe-area-inset-bottom,0));z-index:20;background:#1FAF5A;color:#fff;border-radius:99px;padding:.7rem 1.3rem;font-weight:600;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.flotante{position:fixed;right:1rem;bottom:calc(6.5rem + env(safe-area-inset-bottom,0));z-index:20;background:#1FAF5A;color:#fff;border-radius:99px;padding:.7rem 1.3rem;font-weight:600;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.2)}
 .con-imagen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .foto.con-imagen span{position:relative;z-index:2;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
 .vista-previa{display:grid;gap:.15rem;overflow-wrap:anywhere;padding:1rem;text-align:center}
