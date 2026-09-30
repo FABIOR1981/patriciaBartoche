@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Patricia Bertoche | Masajes y relajación</title>
+<title>Masajes y relajación</title>
 <meta name="description" content="Centro estético de masajes y relajación. Reservá tu momento de calma.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
 <body>
 
 <header class="cabecera">
-  <a href="#inicio" class="marca">Patricia Bertoche</a>
+  <a href="#inicio" class="marca" data-texto="negocio.nombre"></a>
   <button class="menu-boton" aria-label="Abrir menú" aria-expanded="false">Menú</button>
   <nav class="menu" id="menu">
     <a href="#servicios">Servicios</a>
@@ -26,127 +26,79 @@
 
 <main>
   <section class="hero" id="inicio">
-    <div class="respiro" aria-hidden="true"><span id="respiro-texto">Inhalá</span></div>
+    <div class="respiro" aria-hidden="true"><span id="respiro-texto"></span></div>
     <div class="hero-texto">
-      <h1>Una hora para volver a vos</h1>
-      <p>Masajes, tratamientos corporales y estética en un espacio pensado para bajar el ritmo.</p>
+      <h1 data-texto="inicio.titulo"></h1>
+      <p data-texto="inicio.texto"></p>
       <div class="acciones">
-        <a href="#contacto" class="boton">Reservar mi turno</a>
-        <a href="#servicios" class="enlace">Ver servicios</a>
+        <a href="#contacto" class="boton" data-texto="inicio.botonReserva"></a>
+        <a href="#servicios" class="enlace" data-texto="inicio.botonServicios"></a>
       </div>
     </div>
   </section>
 
   <section class="seccion" id="servicios">
-    <h2>Servicios</h2>
-    <p class="intro">Tocá un servicio para ver de qué se trata. Todos se adaptan a cómo llegás ese día.</p>
-    <div class="servicios">
-      <details name="servicio" open>
-        <summary><span>Masaje relajante</span><small>60 min · $1.800</small></summary>
-        <p>Movimientos lentos y continuos con aceites tibios para soltar la tensión del día a día.</p>
-      </details>
-      <details name="servicio">
-        <summary><span>Descontracturante</span><small>50 min · $1.800</small></summary>
-        <p>Trabajo profundo en cuello, espalda y hombros, para zonas cargadas por postura o estrés.</p>
-      </details>
-      <details name="servicio">
-        <summary><span>Drenaje linfático</span><small>60 min · $1.900</small></summary>
-        <p>Técnica suave que ayuda a reducir la retención de líquidos y la sensación de pesadez.</p>
-      </details>
-      <details name="servicio">
-        <summary><span>Piedras calientes</span><small>75 min · $2.400</small></summary>
-        <p>Calor mineral sobre puntos clave del cuerpo para una relajación muscular más profunda.</p>
-      </details>
-      <details name="servicio">
-        <summary><span>Limpieza facial</span><small>60 min · $1.700</small></summary>
-        <p>Limpieza, exfoliación e hidratación según tu tipo de piel, con masaje facial incluido.</p>
-      </details>
-      <details name="servicio">
-        <summary><span>Tratamientos corporales</span><small>Consultar</small></summary>
-        <p>Exfoliaciones e hidratación corporal para renovar la piel. Escribinos y armamos el plan.</p>
-      </details>
-    </div>
-    <p class="nota">Duraciones y precios de ejemplo: reemplazalos por los reales.</p>
+    <h2 data-texto="servicios.titulo"></h2>
+    <p class="intro" data-texto="servicios.intro"></p>
+    <div class="servicios" id="lista-servicios"></div>
+    <p class="nota" data-texto="servicios.nota"></p>
   </section>
 
   <section class="seccion" id="galeria">
-    <h2>Galería</h2>
-    <p class="intro">Un vistazo al espacio y a los tratamientos. Más fotos en Instagram.</p>
-    <div class="galeria">
-      <div class="foto f1"><span>Cabina de masajes</span></div>
-      <div class="foto f2"><span>Aceites y aromas</span></div>
-      <div class="foto f3"><span>Piedras calientes</span></div>
-      <div class="foto f4"><span>Sala de té</span></div>
-      <div class="foto f5"><span>Facial</span></div>
-    </div>
-    <a class="boton" href="https://www.instagram.com/patricia_bertoche/" target="_blank" rel="noopener">Ver más en Instagram</a>
-    <p class="nota">Bloques de ejemplo: reemplazalos por fotos reales en img/.</p>
+    <h2 data-texto="galeria.titulo"></h2>
+    <p class="intro" data-texto="galeria.intro"></p>
+    <div class="galeria" id="lista-galeria"></div>
+    <a class="boton" target="_blank" rel="noopener" data-enlace="contacto.instagram" data-texto="galeria.boton"></a>
+    <p class="nota" data-texto="galeria.nota"></p>
   </section>
 
   <section class="seccion oscura" id="sobre-mi">
     <div class="dos-col">
-      <div class="retrato" role="img" aria-label="Espacio para foto de Patricia"><span>Foto de Patricia</span></div>
+      <div class="retrato" role="img"><span data-texto="sobreMi.textoFoto"></span></div>
       <div>
-        <h2>Hola, soy Patricia</h2>
-        <p>Trabajo con las manos y con el tiempo: cada sesión empieza escuchando cómo estás y termina con un momento de silencio para que el cuerpo asiente.</p>
-        <p>Mi centro es un lugar tranquilo, con luz baja, música suave y productos cuidados.</p>
-        <a class="boton claro" href="https://www.instagram.com/patricia_bertoche/" target="_blank" rel="noopener">Seguime en Instagram</a>
+        <h2 data-texto="sobreMi.titulo"></h2>
+        <div id="parrafos-sobre-mi"></div>
+        <a class="boton claro" target="_blank" rel="noopener" data-enlace="contacto.instagram" data-texto="sobreMi.botonInstagram"></a>
       </div>
     </div>
   </section>
 
   <section class="seccion" id="cuidados">
-    <h2>Cómo es tu visita</h2>
-    <ol class="pasos">
-      <li><strong>Llegás y te tomás un té.</strong> Unos minutos para dejar el celular y respirar.</li>
-      <li><strong>Charlamos.</strong> Me contás dónde sentís tensión o qué querés lograr.</li>
-      <li><strong>Sesión.</strong> Camilla tibia, aromas suaves y un ritmo a tu medida.</li>
-      <li><strong>Cierre.</strong> Te dejo recomendaciones simples para cuidarte en casa.</li>
-    </ol>
+    <h2 data-texto="visita.titulo"></h2>
+    <ol class="pasos" id="lista-pasos"></ol>
   </section>
 
   <section class="seccion" id="opiniones">
-    <h2>Lo que dicen quienes vinieron</h2>
-    <div class="opiniones">
-      <blockquote><p>Salí con el cuerpo liviano y la cabeza en calma. Volví al mes siguiente.</p><cite>María L.</cite></blockquote>
-      <blockquote><p>Patricia escucha antes de empezar y se nota. El descontracturante me cambió la semana.</p><cite>Andrés P.</cite></blockquote>
-      <blockquote><p>Un lugar tranquilo, prolijo y cálido. Ideal para desconectar.</p><cite>Lucía R.</cite></blockquote>
-    </div>
-    <p class="nota">Opiniones de ejemplo: reemplazalas por testimonios reales con permiso de cada persona.</p>
+    <h2 data-texto="opiniones.titulo"></h2>
+    <div class="opiniones" id="lista-opiniones"></div>
+    <p class="nota" data-texto="opiniones.nota"></p>
   </section>
 
   <section class="seccion" id="contacto">
-    <h2>Reservá tu turno</h2>
-    <p class="intro">Completá el formulario y se abre WhatsApp con tu mensaje listo para enviar.</p>
+    <h2 data-texto="reserva.titulo"></h2>
+    <p class="intro" data-texto="reserva.intro"></p>
     <form id="formulario" class="formulario" novalidate>
-      <label>Nombre
+      <label><span data-texto="reserva.etiquetaNombre"></span>
         <input type="text" name="nombre" autocomplete="name" required>
       </label>
-      <label>Servicio
-        <select name="servicio" required>
-          <option value="">Elegí uno</option>
-          <option>Masaje relajante</option>
-          <option>Descontracturante</option>
-          <option>Drenaje linfático</option>
-          <option>Piedras calientes</option>
-          <option>Limpieza facial</option>
-          <option>Tratamientos corporales</option>
-        </select>
+      <label><span data-texto="reserva.etiquetaServicio"></span>
+        <select name="servicio" id="campo-servicio" required></select>
       </label>
-      <label>Día y horario preferido
-        <input type="text" name="horario" placeholder="Ej: jueves por la tarde">
+      <label><span data-texto="reserva.etiquetaHorario"></span>
+        <input type="text" name="horario" id="campo-horario">
       </label>
-      <p class="error" id="error" role="alert" hidden>Completá tu nombre y elegí un servicio para continuar.</p>
-      <button type="submit" class="boton">Enviar por WhatsApp</button>
+      <p class="error" id="error" role="alert" hidden></p>
+      <button type="submit" class="boton" data-texto="reserva.boton"></button>
     </form>
   </section>
 </main>
 
 <footer class="pie">
-  <p>Patricia Bertoche · Masajes y relajación</p>
-  <a href="https://www.instagram.com/patricia_bertoche/" target="_blank" rel="noopener">@patricia_bertoche</a>
+  <p data-texto="negocio.pie"></p>
+  <a target="_blank" rel="noopener" data-enlace="contacto.instagram" data-texto="contacto.usuarioInstagram"></a>
 </footer>
 
+<script src="js/configuracion.js"></script>
 <script src="js/principal.js"></script>
 </body>
 </html>
