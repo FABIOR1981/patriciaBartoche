@@ -1,0 +1,86 @@
+/* Base compartida */
+*,*::before,*::after{box-sizing:inherit}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0)}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--acento);outline-offset:3px}
+details{transition:background .25s}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+.foto,.retrato{position:relative;overflow:hidden}
+.foto{display:flex;align-items:flex-end;padding:1rem}
+.retrato{display:grid;place-items:center}
+.con-imagen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.foto.con-imagen span{position:relative;z-index:2;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.foto.con-imagen::after{content:"";position:absolute;inset:auto 0 0;height:40%;background:linear-gradient(transparent,rgba(0,0,0,.45))}
+.vista-previa{display:grid;gap:.15rem;overflow-wrap:anywhere;padding:.5rem;text-align:center}
+.foto .vista-previa{text-align:left;padding:0}
+.vista-previa small{font-size:.8rem;opacity:.85}
+.menu-boton{display:none}
+@media (max-width:800px){
+  .menu-boton{display:block;background:none;color:inherit;border:1px solid currentColor;border-radius:99px;padding:.3rem 1rem;font:inherit}
+  .menu{display:none!important;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:1rem;padding:1.2rem 5vw;background:var(--menu-fondo,var(--fondo))}
+  .menu.abierto{display:flex!important}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}html{scroll-behavior:auto}}
+@keyframes respirar{0%,100%{transform:scale(.8)}50%{transform:scale(1)}}
+/* Diseño Mineral: gris piedra y azul tinta, minimalista, títulos en columna lateral, servicios en tabla */
+:root{--fondo:#EEF0F0;--tinta:#1F2528;--suave:#66707A;--linea:#C9CFD1;--acento:#2F4B7C;--titulo:"Newsreader",Georgia,serif;--cuerpo:"Instrument Sans",system-ui,sans-serif}
+body{background:var(--fondo);color:var(--tinta);font:400 1.05rem/1.7 var(--cuerpo)}
+h1,h2{font-family:var(--titulo);font-weight:300;line-height:1.05;margin:0 0 .6em}
+h1{font-size:clamp(3rem,9vw,7rem);max-width:12ch}
+h2{font-size:1.5rem;font-weight:400;color:var(--acento)}
+.cabecera{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1rem 5vw;background:var(--fondo);border-bottom:1px solid var(--linea)}
+.marca{font-family:var(--titulo);font-size:1.3rem;text-decoration:none}
+.menu{display:flex;gap:1.6rem;align-items:center;font-size:.95rem}
+.menu a{text-decoration:none;color:var(--suave)}
+.menu a:hover{color:var(--acento)}
+.boton,.boton-mini{display:inline-block;background:var(--acento);color:#fff!important;border:0;padding:.85rem 1.8rem;font:500 1rem var(--cuerpo);text-decoration:none;cursor:pointer;transition:background .2s}
+.boton:hover,.boton-mini:hover{background:var(--tinta)}
+.boton-mini{padding:.3rem .9rem}
+.boton.claro{background:var(--tinta)}
+.enlace{margin-left:1.4rem}
+.hero{max-width:1200px;margin:0 auto;padding:9rem 5vw 6rem}
+.hero-texto p{max-width:40ch;color:var(--suave);font-size:1.25rem}
+.acciones{margin-top:2rem}
+.seccion{display:grid;grid-template-columns:220px 1fr;gap:0 2rem;max-width:1200px;margin:0 auto;padding:4.5rem 5vw;border-top:1px solid var(--linea)}
+.seccion>*{grid-column:2}
+.seccion>h2{grid-column:1;grid-row:1/span 6;position:sticky;top:5rem;align-self:start;margin:0}
+.seccion.oscura{display:block;background:transparent;color:inherit}
+.oscura .dos-col{display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start}
+.oscura h2{position:static}
+.intro,.nota{color:var(--suave)}
+.nota{font-size:.85rem}
+.servicios{display:block}
+details{border-bottom:1px solid var(--linea);padding:1rem 0}
+details[open]{background:transparent}
+summary{display:grid;grid-template-columns:1fr auto;gap:1rem;font-family:var(--titulo);font-size:1.4rem}
+summary small{font:400 .95rem var(--cuerpo);color:var(--suave);align-self:center}
+summary:hover span{color:var(--acento)}
+details p{margin:.6rem 0 0;color:var(--suave);max-width:58ch}
+.galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-bottom:1.6rem}
+.foto{aspect-ratio:1;color:#fff}
+.f1{background:linear-gradient(150deg,#b9c2c6,#8d999e)}.f2{background:linear-gradient(150deg,#2F4B7C,#1f3356)}.f3{background:linear-gradient(150deg,#d9dddf,#aab3b7)}.f4{background:linear-gradient(150deg,#8d999e,#5d6a70)}.f5{background:linear-gradient(150deg,#c9cfd1,#8d999e)}
+.retrato{aspect-ratio:3/4;background:linear-gradient(160deg,#c9cfd1,#8d999e);color:#fff}
+.pasos{list-style:none;padding:0;margin:0}
+.pasos li{display:grid;grid-template-columns:1fr 2fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--linea);color:var(--suave)}
+.pasos strong{font:400 1.25rem var(--titulo);color:var(--tinta)}
+.opiniones{display:grid}
+blockquote{margin:0;padding:1.4rem 0;border-bottom:1px solid var(--linea)}
+blockquote p{margin:0 0 .5rem;font:italic 300 1.5rem/1.4 var(--titulo)}
+cite{font-style:normal;color:var(--suave)}
+.formulario{display:grid;gap:1.1rem;max-width:520px}
+label{display:grid;gap:.35rem;font-weight:500}
+input,select{font:inherit;padding:.75rem 0;border:0;border-bottom:1px solid var(--tinta);background:transparent;color:var(--tinta);border-radius:0}
+.error{color:#9b2c3c;margin:0}
+.pie{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;padding:2rem 5vw calc(4.5rem + env(safe-area-inset-bottom,0));border-top:1px solid var(--linea);color:var(--suave)}
+.pie p{margin:0}
+@media (max-width:800px){
+  .seccion,.oscura .dos-col{grid-template-columns:1fr}
+  .seccion>*,.seccion>h2{grid-column:1;grid-row:auto;position:static}
+  .seccion>h2{margin-bottom:1rem}
+  .hero{padding:5rem 5vw 3rem}
+  .pasos li{grid-template-columns:1fr}
+  .retrato{max-width:240px}
+}

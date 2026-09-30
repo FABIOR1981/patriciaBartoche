@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Masajes y relajación</title>
+<meta name="description" content="Centro estético de masajes y relajación. Reservá tu momento de calma.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/aurora.css">
+</head>
+<body>
+
+<a class="franja" target="_blank" rel="noopener" data-whatsapp data-texto="inicio.botonReserva"></a>
+<header class="cabecera">
+  <a href="#inicio" class="marca" data-texto="negocio.nombre"></a>
+  <button class="menu-boton" aria-label="Abrir menú" aria-expanded="false">Menú</button>
+  <nav class="menu" id="menu">
+    <a href="#servicios">Servicios</a>
+    <a href="#galeria">Galería</a>
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#cuidados">Tu visita</a>
+    <a href="#contacto" class="boton-mini">Reservar</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="respiro" aria-hidden="true"><span id="respiro-texto"></span></div>
+    <div class="hero-texto">
+      <h1 data-texto="inicio.titulo"></h1>
+      <p data-texto="inicio.texto"></p>
+      <div class="acciones">
+        <a href="#contacto" class="boton" data-texto="inicio.botonReserva"></a>
+        <a href="#servicios" class="enlace" data-texto="inicio.botonServicios"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="servicios">
+    <h2 data-texto="servicios.titulo"></h2>
+    <p class="intro" data-texto="servicios.intro"></p>
+    <div class="servicios" id="lista-servicios"></div>
+    <p class="nota" data-texto="servicios.nota"></p>
+  </section>
+
+  <section class="seccion" id="opiniones">
+    <h2 data-texto="opiniones.titulo"></h2>
+    <div class="opiniones" id="lista-opiniones"></div>
+    <p class="nota" data-texto="opiniones.nota"></p>
+  </section>
+
+  <section class="seccion" id="galeria">
+    <h2 data-texto="galeria.titulo"></h2>
+    <p class="intro" data-texto="galeria.intro"></p>
+    <div class="galeria" id="lista-galeria"></div>
+    <a class="boton" target="_blank" rel="noopener" data-enlace="contacto.instagram" data-texto="galeria.boton"></a>
+    <p class="nota" data-texto="galeria.nota"></p>
+  </section>
+
+  <section class="seccion oscura" id="sobre-mi">
+    <div class="dos-col">
+      <div class="retrato" role="img"><span data-texto="sobreMi.textoFoto"></span></div>
+      <div>
+        <h2 data-texto="sobreMi.titulo"></h2>
+        <div id="parrafos-sobre-mi"></div>
+        <a class="boton claro" target="_blank" rel="noopener" data-enlace="contacto.instagram" data-texto="sobreMi.botonInstagram"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="cuidados">
+    <h2 data-texto="visita.titulo"></h2>
+    <ol class="pasos" id="lista-pasos"></ol>
+  </section>
+
+  <section class="seccion" id="contacto">
+    <h2 data-texto="reserva.titulo"></h2>
+    <p class="intro" data-texto="reserva.intro"></p>
+    <form id="formulario" class="formulario" novalidate>
+      <label><span data-texto="reserva.etiquetaNombre"></span>
+        <input type="text" name="nombre" autocomplete="name" required>
+      </label>
+      <label><span data-texto="reserva.etiquetaServicio"></span>
+        <select name="servicio" id="campo-servicio" required></select>
+      </label>
+      <label><span data-texto="reserva.etiquetaHorario"></span>
+        <input type="text" name="horario" id="campo-horario">
+      </label>
+      <p class="error" id="error" role="alert" hidden></p>
+      <button type="submit" class="boton" data-texto="reserva.boton"></button>
+    </form>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <p data-texto="negocio.pie"></p>
+  <a target="_blank" rel="noopener" data-enlace="contacto.instagram" data-texto="contacto.usuarioInstagram"></a>
+</footer>
+
+<script src="js/configuracion.js"></script>
+<script src="js/principal.js"></script>
+<script src="js/selector.js"></script>
+</body>
+</html>
